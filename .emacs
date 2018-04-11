@@ -21,12 +21,13 @@
 (global-flycheck-mode 1)
 
 ;; theming
-(load-theme 'challenger-deep t)
+(load-theme 'badwolf t)
 (setq-default cursor-type 'bar)
 (global-hl-line-mode 1)
 
 ;; magit
 (require 'magit)
+(global-set-key (kbd "M-g b") 'magit-blame)
 (global-set-key (kbd "M-g s") 'magit-status)
 (global-set-key (kbd "M-g l") 'magit-log-buffer-file)
 (global-set-key (kbd "M-g t") 'git-timemachine)
@@ -47,7 +48,41 @@
 (setq enable-recursive-minibuffers t)
 
 (counsel-projectile-mode 1)
+(counsel-mode 1)
 
-;; nlinum
-;; (require 'nlinum)
-;; (global-nlinum-mode 1)
+;; expand-region
+(require 'expand-region)
+(global-set-key (kbd "C-'") 'er/mark-inside-quotes)
+(global-set-key (kbd "C-\"") 'er/mark-outside-quotes)
+(global-set-key (kbd "C-}") 'er/mark-inside-pairs)
+
+;; telephone line
+(require 'telephone-line)
+
+;;
+(defface git-face '((t (:foreground "black" :background "#6495ed"))) "")
+
+(setq telephone-line-faces
+      '((git . (git-face . telephone-line-accent-inactive))
+        (evil . telephone-line-evil-face)
+        (accent . (telephone-line-accent-active . telephone-line-accent-inactive))
+        (nil . (mode-line . mode-line-inactive))))
+
+(setq telephone-line-lhs
+      '((git   . (telephone-line-vc-segment))
+        (accent . (telephone-line-flycheck-segment
+                   telephone-line-erc-modified-channels-segment
+                   telephone-line-process-segment))
+        (nil    . (telephone-line-buffer-segment))))
+(setq telephone-line-rhs
+      '((nil    . (telephone-line-misc-info-segment))
+        (accent . (telephone-line-major-mode-segment))
+        (accent   . (telephone-line-airline-position-segment))))
+
+(setq telephone-line-primary-right-separator 'telephone-line-abs-left
+      telephone-line-secondary-right-separator 'telephone-line-abs-hollow-left)
+(setq telephone-line-height 24
+      telephone-line-evil-use-short-tag t)
+
+(telephone-line-mode t)
+(set-face-attribute 'mode-line nil :background "#000000")
