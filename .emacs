@@ -18,6 +18,10 @@
 (require 'better-defaults)
 
 ;; flycheck
+(require 'flycheck)
+
+(setq flycheck-flake8-maximum-line-length 120)
+
 (global-flycheck-mode 1)
 
 ;; theming
