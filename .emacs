@@ -15,6 +15,11 @@
              '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 (add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/"))
 
+;; built-ins config
+(electric-pair-mode 1)
+(setq-default show-trailing-whitespace t)
+
+
 (require 'better-defaults)
 
 ;; flycheck
