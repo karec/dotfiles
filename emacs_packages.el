@@ -26,6 +26,9 @@
         counsel-projectile
         comint-better-defaults
         better-defaults
-        badwolf-theme))
+        badwolf-theme
+        yaml-mode
+        markdown-mode
+        org-mode))
 
 (package-install-selected-packages)
