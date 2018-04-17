@@ -26,7 +26,7 @@
 (require 'flycheck)
 
 (setq flycheck-flake8-maximum-line-length 120)
-(setq flycheck-check-syntax-automatically 'save)
+(setq flycheck-check-syntax-automatically '(mode-enabled save))
 (global-flycheck-mode 1)
 
 ;; theming
