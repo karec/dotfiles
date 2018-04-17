@@ -93,5 +93,7 @@
 (setq telephone-line-height 24
       telephone-line-evil-use-short-tag t)
 
+(require 'iedit)
+
 (telephone-line-mode t)
 (set-face-attribute 'mode-line nil :background "#000000")

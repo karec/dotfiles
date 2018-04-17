@@ -29,6 +29,7 @@
         badwolf-theme
         yaml-mode
         markdown-mode
-        org-mode))
+        org-mode
+        iedit))
 
 (package-install-selected-packages)
