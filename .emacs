@@ -41,15 +41,6 @@
 (global-set-key (kbd "M-g l") 'magit-log-buffer-file)
 (global-set-key (kbd "M-g t") 'git-timemachine)
 
-
-;; projectile
-(require 'projectile)
-(projectile-global-mode)
-
-(global-set-key (kbd "M-p f") 'projectile-find-file)
-(global-set-key (kbd "M-p s") 'projectile-grep)
-(global-set-key (kbd "M-p p") 'projectile-switch-project)
-
 ;; ivy
 (require 'ivy)
 (ivy-mode 1)
@@ -58,6 +49,15 @@
 
 (counsel-projectile-mode 1)
 (counsel-mode 1)
+
+;; projectile
+(require 'projectile)
+(projectile-global-mode)
+
+(global-set-key (kbd "M-p f") 'projectile-find-file)
+(global-set-key (kbd "M-p s") 'counsel-projectile-rg)
+(global-set-key (kbd "M-p p") 'projectile-switch-project)
+
 
 ;; expand-region
 (require 'expand-region)
