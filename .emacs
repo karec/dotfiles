@@ -95,5 +95,16 @@
 
 (require 'iedit)
 
+;; anaconda mode
+(add-hook 'python-mode-hook 'anaconda-eldoc-mode)
+(global-set-key (kbd "M-.") 'anaconda-mode-find-definitions)
+(global-set-key (kbd "M-,") 'anaconda-mode-find-assignments)
+(global-set-key (kbd "M-r") 'anaconda-mode-find-references)
+
+;; venv
+(require 'virtualenvwrapper)
+(venv-initialize-interactive-shells) ;; if you want interactive shell support
+
+
 (telephone-line-mode t)
 (set-face-attribute 'mode-line nil :background "#000000")

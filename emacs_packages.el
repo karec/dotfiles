@@ -30,6 +30,9 @@
         yaml-mode
         markdown-mode
         org-mode
-        iedit))
+        iedit
+        virtualenvwrapper
+        anaconda-mode
+        ))
 
 (package-install-selected-packages)
