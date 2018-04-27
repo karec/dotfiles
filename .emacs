@@ -93,7 +93,11 @@
 (setq telephone-line-height 24
       telephone-line-evil-use-short-tag t)
 
+;; idedit
 (require 'iedit)
+
+;; backups
+(setq backup-directory-alist `(("." . "~/.saves")))
 
 ;; anaconda mode
 (add-hook 'python-mode-hook 'anaconda-eldoc-mode)
@@ -103,7 +107,7 @@
 
 ;; venv
 (require 'virtualenvwrapper)
-(venv-initialize-interactive-shells) ;; if you want interactive shell support
+(setq projectile-switch-project-action 'venv-projectile-auto-workon)
 
 
 (telephone-line-mode t)
