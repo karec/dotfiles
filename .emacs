@@ -25,6 +25,10 @@
 ;; flycheck
 (require 'flycheck)
 
+;; rust
+(with-eval-after-load 'rust-mode
+  (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
+
 (setq flycheck-flake8-maximum-line-length 120)
 (setq flycheck-check-syntax-automatically '(mode-enabled save))
 (global-flycheck-mode 1)
