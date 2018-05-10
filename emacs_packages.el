@@ -33,6 +33,6 @@
         iedit
         virtualenvwrapper
         anaconda-mode
-        ))
+        rust-mode))
 
 (package-install-selected-packages)
