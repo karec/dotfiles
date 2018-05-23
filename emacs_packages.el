@@ -26,7 +26,7 @@
         counsel-projectile
         comint-better-defaults
         better-defaults
-        badwolf-theme
+        zenburn-theme
         yaml-mode
         markdown-mode
         org-mode

@@ -34,7 +34,7 @@
 (global-flycheck-mode 1)
 
 ;; theming
-(load-theme 'badwolf t)
+(load-theme 'zenburn t)
 (setq-default cursor-type 'bar)
 (global-hl-line-mode 1)
 
@@ -116,3 +116,20 @@
 
 (telephone-line-mode t)
 (set-face-attribute 'mode-line nil :background "#000000")
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("a24c5b3c12d147da6cef80938dca1223b7c7f70f2f382b26308eba014dc4833a" "732b807b0543855541743429c9979ebfb363e27ec91e82f463c91e68c772f6e3" "e11569fd7e31321a33358ee4b232c2d3cf05caccd90f896e1df6cab228191109" default)))
+ '(package-selected-packages
+   (quote
+    (material-theme zenburn-theme yaml-mode virtualenvwrapper telephone-line rust-mode markdown-mode magit iedit flycheck-rust expand-region counsel-projectile comint-better-defaults better-defaults badwolf-theme anaconda-mode))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
