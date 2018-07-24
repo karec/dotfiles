@@ -18,20 +18,15 @@
 ;; built-ins config
 (electric-pair-mode 1)
 (setq-default show-trailing-whitespace t)
+(global-display-line-numbers-mode)
 
 
 (require 'better-defaults)
 
 ;; flycheck
 (require 'flycheck)
-
-;; rust
-(with-eval-after-load 'rust-mode
-  (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
-
-(setq flycheck-flake8-maximum-line-length 120)
-(setq flycheck-check-syntax-automatically '(mode-enabled save))
 (global-flycheck-mode 1)
+(setq flycheck-flake8-maximum-line-length 120)
 
 ;; theming
 (load-theme 'zenburn t)
@@ -45,15 +40,14 @@
 (global-set-key (kbd "M-g l") 'magit-log-buffer-file)
 (global-set-key (kbd "M-g t") 'git-timemachine)
 
+
 ;; ivy
 (require 'ivy)
 (ivy-mode 1)
 (setq ivy-use-virtual-buffers t)
 (setq enable-recursive-minibuffers t)
-
 (setq ivy-re-builders-alist
-      '((read-file-name-internal . ivy--regex-fuzzy)
-        (t . ivy--regex-fuzzy)))
+      '((t . ivy--regex-fuzzy)))
 
 (counsel-projectile-mode 1)
 (counsel-mode 1)
@@ -66,7 +60,6 @@
 (global-set-key (kbd "M-p s") 'counsel-projectile-rg)
 (global-set-key (kbd "M-p p") 'projectile-switch-project)
 
-
 ;; expand-region
 (require 'expand-region)
 (global-set-key (kbd "C-'") 'er/mark-inside-quotes)
@@ -76,7 +69,6 @@
 ;; telephone line
 (require 'telephone-line)
 
-;;
 (defface git-face '((t (:foreground "black" :background "#6495ed"))) "")
 
 (setq telephone-line-faces
@@ -101,7 +93,10 @@
 (setq telephone-line-height 24
       telephone-line-evil-use-short-tag t)
 
-;; idedit
+(telephone-line-mode t)
+(set-face-attribute 'mode-line nil :background "#000000")
+
+;; iedit
 (require 'iedit)
 
 ;; backups
@@ -118,8 +113,6 @@
 (setq projectile-switch-project-action 'venv-projectile-auto-workon)
 
 
-(telephone-line-mode t)
-(set-face-attribute 'mode-line nil :background "#000000")
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -127,10 +120,11 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
-    ("a24c5b3c12d147da6cef80938dca1223b7c7f70f2f382b26308eba014dc4833a" "732b807b0543855541743429c9979ebfb363e27ec91e82f463c91e68c772f6e3" "e11569fd7e31321a33358ee4b232c2d3cf05caccd90f896e1df6cab228191109" default)))
+    ("c74e83f8aa4c78a121b52146eadb792c9facc5b1f02c917e3dbb454fca931223" default)))
+ '(electric-pair-mode t)
  '(package-selected-packages
    (quote
-    (material-theme zenburn-theme yaml-mode virtualenvwrapper telephone-line rust-mode markdown-mode magit iedit flycheck-rust expand-region counsel-projectile comint-better-defaults better-defaults badwolf-theme anaconda-mode))))
+    (zenburn-theme rust-mode virtualenvwrapper anaconda-mode git-timemachine iedit sml-mode markdown-mode yaml-mode telephone-line expand-region magit flycheck counsel-projectile comint-better-defaults better-defaults badwolf-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
