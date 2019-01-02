@@ -34,6 +34,7 @@
         virtualenvwrapper
         anaconda-mode
         rust-mode
-        flycheck-rust))
+        flycheck-rust
+        avy))
 
 (package-install-selected-packages)
