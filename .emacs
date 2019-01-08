@@ -152,6 +152,10 @@
 (global-set-key (kbd "M-g g") 'avy-goto-line)
 
 
+;; golden ratio
+(require 'golden-ratio)
+(golden-ratio-mode 1)
+
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -166,7 +170,7 @@
  '(org-agenda-files (quote ("~/Documents/orga/agenda.org")))
  '(package-selected-packages
    (quote
-    (minions use-package hcl-mode zenburn-theme rust-mode virtualenvwrapper anaconda-mode git-timemachine iedit sml-mode markdown-mode yaml-mode telephone-line expand-region magit flycheck counsel-projectile comint-better-defaults better-defaults badwolf-theme))))
+    (golden-ratio minions use-package hcl-mode zenburn-theme rust-mode virtualenvwrapper anaconda-mode git-timemachine iedit sml-mode markdown-mode yaml-mode telephone-line expand-region magit flycheck counsel-projectile comint-better-defaults better-defaults badwolf-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
