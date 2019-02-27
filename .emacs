@@ -151,10 +151,20 @@
 (global-set-key (kbd "C-:") 'avy-goto-char-2)
 (global-set-key (kbd "M-g g") 'avy-goto-line)
 
+;; ansi-color for m-x compile
+(require 'ansi-color)
+(defun colorize-compilation-buffer ()
+  (toggle-read-only)
+  (ansi-color-apply-on-region compilation-filter-start (point))
+  (toggle-read-only))
+(add-hook 'compilation-filter-hook 'colorize-compilation-buffer)
 
-;; golden ratio
-(require 'golden-ratio)
-(golden-ratio-mode 1)
+;; rust
+(require 'rust-mode)
+
+(setq rust-format-on-save t)
+(with-eval-after-load 'rust-mode
+  (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
 
 
 (custom-set-variables

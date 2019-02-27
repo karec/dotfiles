@@ -35,7 +35,6 @@
         anaconda-mode
         rust-mode
         flycheck-rust
-        avy
-        golden-ration))
+        avy))
 
 (package-install-selected-packages)
