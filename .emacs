@@ -1,3 +1,6 @@
+;; load-path
+(add-to-list 'load-path "~/.emacs.d/lisp/")
+
 ;; pacakges
 (require 'package)
 (let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
@@ -38,8 +41,11 @@
 
 ;; theming
 (load-theme 'zenburn t)
-(setq-default cursor-type 'bar)
+(setq-default cursor-type 'box)
 (global-hl-line-mode 1)
+(set-face-background 'hl-line "#3e4446")
+(add-hook 'window-setup-hook '(lambda () (set-cursor-color "#00bfff")))
+(add-hook 'after-make-frame-functions '(lambda (f) (with-selected-frame f (set-cursor-color "#00bfff"))))
 
 ;; magit
 (require 'magit)
@@ -166,6 +172,9 @@
 (with-eval-after-load 'rust-mode
   (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
 
+;; confluence
+(require 'ox-confluence)
+
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -180,7 +189,7 @@
  '(org-agenda-files (quote ("~/Documents/orga/agenda.org")))
  '(package-selected-packages
    (quote
-    (golden-ratio minions use-package hcl-mode zenburn-theme rust-mode virtualenvwrapper anaconda-mode git-timemachine iedit sml-mode markdown-mode yaml-mode telephone-line expand-region magit flycheck counsel-projectile comint-better-defaults better-defaults badwolf-theme))))
+    (golden-ratio minions use-package hcl-mode zenburn-theme rust-mode virtualenvwrapper git-timemachine iedit sml-mode markdown-mode yaml-mode telephone-line expand-region magit flycheck counsel-projectile comint-better-defaults better-defaults badwolf-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
