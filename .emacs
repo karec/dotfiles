@@ -181,10 +181,14 @@
 (require 'eglot)
 (require 'rustic)
 (require 'company)
+(add-hook 'eglot--managed-mode-hook (lambda () (flymake-mode -1)))
+(add-hook 'rustic-mode-hook 'company-mode)
 
 (setq rustic-lsp-client 'eglot)
 (with-eval-after-load 'rust-mode
-  (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
+  (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
+  (add-hook 'eglot--managed-mode-hook (lambda () (flymake-mode -1)))
+  )
 (setq rustic-format-on-save t)
 
 
