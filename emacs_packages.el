@@ -1,5 +1,6 @@
 ;; install required packages
 (require 'package)
+(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
 
 (let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
                     (not (gnutls-available-p))))
@@ -33,8 +34,11 @@
         iedit
         virtualenvwrapper
         anaconda-mode
-        rust-mode
         flycheck-rust
-        avy))
+        avy
+        blacken
+        rustic
+        eglot
+        company))
 
 (package-install-selected-packages)

@@ -107,11 +107,14 @@
 ;; backups
 (setq backup-directory-alist `(("." . "~/.saves")))
 
-;; anaconda mode
+;; python config
 (add-hook 'python-mode-hook 'anaconda-eldoc-mode)
 (global-set-key (kbd "M-.") 'anaconda-mode-find-definitions)
 (global-set-key (kbd "M-,") 'anaconda-mode-find-assignments)
 (global-set-key (kbd "M-r") 'anaconda-mode-find-references)
+
+;; (require 'blacken)
+;; (add-hook 'python-mode-hook 'blacken-mode)
 
 ;; venv
 (require 'virtualenvwrapper)
@@ -165,15 +168,24 @@
   (toggle-read-only))
 (add-hook 'compilation-filter-hook 'colorize-compilation-buffer)
 
-;; rust
-(require 'rust-mode)
-
-(setq rust-format-on-save t)
-(with-eval-after-load 'rust-mode
-  (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
-
 ;; confluence
 (require 'ox-confluence)
+
+;; org-mode
+(require 'org)
+(setq org-default-notes-file "/home/evalette/Documents/orga/agenda/notes.org")
+
+(setq org-log-done 'time)
+
+;; rust config
+(require 'eglot)
+(require 'rustic)
+(require 'company)
+
+(setq rustic-lsp-client 'eglot)
+(with-eval-after-load 'rust-mode
+  (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
+(setq rustic-format-on-save t)
 
 
 (custom-set-variables
@@ -186,10 +198,12 @@
     ("c74e83f8aa4c78a121b52146eadb792c9facc5b1f02c917e3dbb454fca931223" default)))
  '(electric-pair-mode t)
  '(inhibit-startup-screen t)
- '(org-agenda-files (quote ("~/Documents/orga/agenda.org")))
+ '(org-agenda-files
+   (quote
+    ("~/Documents/orga/agenda/notes.org" "~/Documents/orga/agenda/work.org")))
  '(package-selected-packages
    (quote
-    (golden-ratio minions use-package hcl-mode zenburn-theme rust-mode virtualenvwrapper git-timemachine iedit sml-mode markdown-mode yaml-mode telephone-line expand-region magit flycheck counsel-projectile comint-better-defaults better-defaults badwolf-theme))))
+    (eglot telephone-line expand-region magit flycheck counsel-projectile comint-better-defaults better-defaults zenburn-theme yaml-mode markdown-mode org-mode iedit virtualenvwrapper anaconda-mode rust-mode flycheck-rust avy blacken))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
