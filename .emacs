@@ -181,11 +181,12 @@
 (require 'eglot)
 (require 'rustic)
 (require 'company)
+(setq rustic-lsp-client 'eglot)
+(setq rustic-lsp-server 'rust-analyzer)
 (add-hook 'eglot--managed-mode-hook (lambda () (flymake-mode -1)))
 (add-hook 'rustic-mode-hook 'company-mode)
 
-(setq rustic-lsp-client 'eglot)
-(with-eval-after-load 'rust-mode
+(with-eval-after-load 'rustic-mode
   (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
   (add-hook 'eglot--managed-mode-hook (lambda () (flymake-mode -1)))
   )
