@@ -1,3 +1,10 @@
+;; Load MELPA
+(require 'package)
+(package-initialize)
+
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+(add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/"))
+
 ;; setup
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
@@ -55,14 +62,6 @@
 (defadvice kill-line (after kill-line-cleanup-whitespace activate compile)
   (if (not (bolp))
       (delete-region (point) (progn (skip-chars-forward " \t") (point)))))
-
-
-;; Load MELPA
-(require 'package)
-(package-initialize)
-
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-(add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/"))
 
 (require 'use-package)
 
