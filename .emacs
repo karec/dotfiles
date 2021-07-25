@@ -1,21 +1,3 @@
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(blacken-line-length 120 t)
- '(custom-safe-themes
-   '("3f44e2d33b9deb2da947523e2169031d3707eec0426e78c7b8a646ef773a2077" default))
- '(package-selected-packages
-   '(cargo rust-mode lsp-ivy lsp-ui blacken org-mode anaconda-eldoc-mode use-package zenburn-theme yasnippet yaml-mode virtualenvwrapper telephone-line pos-tip magit iedit golden-ratio flycheck-rust expand-region dash-functional counsel-projectile company comint-better-defaults better-defaults avy anaconda-mode)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
-
-
 ;; setup
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
